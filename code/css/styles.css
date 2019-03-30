@@ -1,0 +1,282 @@
+/*Gleason*/
+/*Classes*/
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+
+/* Elements */
+nav {
+  background-color: #562A2A;
+}
+
+strong {
+  font-weight: bold;
+}
+
+body {
+	background-color: #FFFFFF;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+header, footer {
+  background-color: #562A2A;
+  text-align: center;
+}
+
+img {
+  padding-top: 4em;
+  padding-left: 2em;
+}
+
+div {
+  text-align: justify;
+}
+
+h5 {
+  text-align: center;
+}
+
+/* IDs */
+
+#menu {
+	/*background-color: #C3c3c3;*/
+  border: 1.5pt;
+  border-style: solid;
+  margin-left: auto;
+}
+
+/*Sandra*/
+
+.row {
+  margin-bottom: 3vh;
+}
+
+.scroll {
+  width:100%;
+  height:62vh;
+  overflow: auto;
+}
+
+.blocku{
+  width: 50%;
+}
+
+.contenido {
+  margin-top: 2vh;
+}
+
+.brand-logo {
+  margin-left: 5vw;
+}
+
+.main-btn {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+}
+
+.menu-btn {
+  width: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+  height: 50vh;
+}
+
+.wide-btn {
+  width: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+  height: 18vh;
+}
+
+.large-btn {
+  width: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+  height: 31vh;
+}
+
+.change-btn {
+  margin-top: 15%;
+}
+
+.prod-btn-container {
+  height: 65vh;
+}
+
+.three-row-btn {
+  width: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+  height: 22vh;
+}
+
+.prod-btn {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+
+}
+
+.full-height {
+  height: 100%;
+}
+
+.prod-1row {
+  height: 100%;
+  margin: 0;
+  padding-bottom: 2%;
+}
+
+.prod-2row {
+  height: 50%;
+  margin-bottom: 0;
+  padding-bottom: 2%;
+}
+
+.prod-3row {
+  height: 33.33%;
+  margin-bottom: 0;
+  padding-bottom: 2%;
+}
+
+.reciente-btn {
+  width: 100%;
+  display: grid;
+  font-size: 2em;
+  text-transform: none;
+  height: 15vh;
+}
+
+.menu_search_bar {
+  min-height: 10vh;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.input-field .search-icon {
+  font-size: 3em;
+  line-height: 1.5em;
+}
+
+.input-field .search-label {
+  font-size: 2em;
+  text-align: center;
+}
+
+.main-btn i, .menu-btn i {
+  font-size: 5em;
+  line-height: normal;
+}
+
+.wide-btn i {
+  font-size: 3.5em;
+  line-height: normal;
+}
+
+.bigger-icon {
+  font-size: 3em;
+}
+
+.big-scrollable-table {
+  height: 65vh;
+  overflow-y: scroll;
+}
+
+.medium-table {
+  height: 43vh;
+  overflow-y: scroll;
+}
+
+.small-scrollable-table {
+  height: 30vh;
+  overflow-y: scroll;
+}
+
+.corte-table {
+  height: 35vh;
+}
+
+.big-table td {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.icon-red {
+  color: #e53935; /*materialize red darken-1*/
+}
+
+.icon-lime {
+  color: #c0ca33; /*materialize lime darken-1*/
+}
+
+.modificador_cantidad p {
+  text-align: center;
+  font-size: 5em;
+  margin: 0;
+  width: 100%;
+  line-height: 30vh;
+  height: 30vh; /*Si cambias esta cambia tambien line-height*/
+  border: 1px solid black;
+}
+
+.modificador_cantidad i {
+  font-size: 25vh;
+  width: 100%;
+  text-align: center;
+}
+
+nav ul li a {
+  width: 12vw;
+  text-align: center;
+}
+
+footer {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a {
+  color: #424242; /*Materialize grey darken-3*/
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: #562A2A;
+  line-height: 100%;
+}
+h3 {
+  font-size: 2.5em;
+}
+
+/*Brenda*/
+body{
+	background-color: #FFFFFF;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}

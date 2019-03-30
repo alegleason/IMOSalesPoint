@@ -1,0 +1,75 @@
+<div class="container">
+ <section>
+   <div class="row">
+     <div class="col m7">
+       <h4>Buen día...</h4>
+       <div class="row">
+         <div class="col m12">
+           <i class="material-icons prefix">account_circle</i>
+           <p>¡Bienvenidx <?=$_SESSION['nombre']?>!</p>
+           <p>Usuario: <?=$_SESSION['idUsuario']?></p>
+           <?php if(allowed(34)) { ?> <!--verMiSaldo-->
+             <p>Saldo pendiente: $<?=$_SESSION['deuda']?></p>
+           <?php } ?>
+         </div>
+       </div>
+     </div>
+     <div class="col m5">
+       <br>
+       <span id="date" class="center">DATE</span>
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+   <div class="row">
+     <?php if(allowed(39)) { ?> <!--registrarCompraEnLinea-->
+       <div class="col m3">
+         <form action="principal.php">
+           <button class="btn waves-effect waves-light  brown lighten-3" name="realizar_pedido" type="submit">Realizar pedido
+             <i class="material-icons right">send</i>
+           </button>
+         </form>
+       </div>
+     <?php } ?>
+     <?php if(allowed(40)) { ?> <!--registrarPagoEnLinea-->
+       <div class="col m4">
+         <form action="pagar_saldo.php">
+           <button class="btn waves-effect waves-light brown lighten-3" name="pagar_saldo" type="submit">Pagar Saldo Pendiente
+             <i class="material-icons right">monetization_on</i>
+           </button>
+         </form>
+       </div>
+     <?php } ?>
+   </div>
+  </section>
+
+  <?php if(allowed(36)) { ?> <!--verProductosDisponibles-->
+    <br><br>
+    <div class="row">
+      <div class="col m6" id="menu">
+        <h5><i class="material-icons prefix">free_breakfast
+        </i><strong> Menú recomendado del día</strong></h5>
+        <ol><!--Trasladar a PHP aparte-->
+           <strong>Bebida</strong>
+           <li> <?=$bebida?> </li>
+          <li> Leche </li>
+          <li> Americano </li>
+        </ol>
+        <ol>
+         <strong>Platillo principal</strong>
+         <li> <?=$comida?> </li>
+          <li> Sopa fría </li>
+          <li> Frijoles puercos </li>
+        </ol>
+        <ol>
+         <strong>Postre</strong>
+         <li> <?=$postre?> </li>
+          <li> Flan </li>
+          <li> Gorditas de nata </li>
+        </ol>
+     </div>
+     <div class="col m6">
+       <iframe src="https://calendar.google.com/calendar/embed?src=1cr1d6f347ljqg2aucu20hv5b4%40group.calendar.google.com&ctz=America%2FMexico_City" style="border: 0" width="550" height="350" frameborder="0" scrolling="no"></iframe>
+     </div>
+   </div>
+ <?php } ?>
+</div>

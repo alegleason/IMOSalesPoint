@@ -1,0 +1,43 @@
+<div class="container">
+ <section>
+   <div class="row">
+     <form class="col m7" method="POST" action="login.php" id="forma">
+       <h4>Iniciar sesión</h4>
+       <div class="row">
+         <div class="col m10">
+           <p class="red lighten-3"><span class="error"><?php echo $error;?></span></p>
+         </div>
+       </div>
+       <div class="row">
+         <div class="input-field col m10">
+           <i class="material-icons prefix">account_circle</i>
+           <input class="form-control" type="text" name="idUsuario" id="idUsuario" required>
+           <label for="idUsuario">Id de Usuario</label>
+         </div>
+       </div>
+       <div class="row">
+         <div class="input-field col m10">
+           <i class="material-icons prefix">https</i>
+           <input class="form-control" type="password" id="password" name="password" required>
+           <label for="password">Contraseña</label>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col m4">
+           <button class="btn waves-effect waves-light small-font brown lighten-3" type="submit">Entrar
+             <i class="material-icons right">send</i>
+           </button>
+         </div>
+       </form>
+       <form class="col m6" method="POST" action="forgot.php" id="forma">
+          <button class="btn waves-effect waves-light brown lighten-3">Olvidé mi contraseña</button>
+     </form>
+       </div>
+     <div class="col m5">
+       <br>
+       <span id="date" class="center">DATE</span>
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+ </section>
+</div>

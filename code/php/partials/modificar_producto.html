@@ -1,0 +1,74 @@
+<br>
+
+<section>
+ <div class="container">
+   <div class="row">
+     <div class="col s12 m10 l8">
+      <div>
+        <h5><strong> <i class="material-icons prefix">create</i>Modificar Datos de Producto </strong></h5>
+        <input type="hidden" id="idp" name="idp" value="<?=$id?>"/>
+        <label for="nameP">Nombre</label>
+        <input type="text" id="nameP" name="nameP" value="<?=$nombre?>" placeholder="Ej: Latte" readonly="readonly">
+        <span id="namePWrong" style="color:red"> </span>
+        <br><br>
+        <label for="descripcion">Descripción</label>
+        <input type="text" id="descripcion" name="descripcion" value="<?=$descripcion?>" placeholder="Ej: Bebida caliente a base de café" onkeyup="validarDescripcion();">
+        <span id="descriptionWrong" style="color:red"> </span>
+        <br><br>
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="precio">Precio</label>
+                <input type="number" id="precio" name="precio" value="<?=$precio?>" placeholder="Ej: 25" onkeyup="validarPrecio();">
+                <span id="priceWrong" style="color:red"> </span>
+            </div> 
+            <div class="input-field col s6">
+            <?php if($categoria==1) { ?> 
+                <select id="categorias" name="categorias">
+                    <option value="" disabled selected>Elegir una opción</option>
+                    <option value="1" id="comida" name="comida" selected>Comida</option>
+                    <option value="2" id="bebida" name="bebida">Bebida</option>
+                    <option value="3" id="postre" name="postre">Postre</option>
+                  </select>
+            <?php }else if($categoria==2){ ?>
+                <select id="categorias" name="categorias">
+                    <option value="" disabled selected>Elegir una opción</option>
+                    <option value="1" id="comida" name="comida" >Comida</option>
+                    <option value="2" id="bebida" name="bebida" selected>Bebida</option>
+                    <option value="3" id="postre" name="postre">Postre</option>
+                  </select>
+            <?php } else {?>
+                <select id="categorias" name="categorias">
+                    <option value="" disabled selected>Elegir una opción</option>
+                    <option value="1" id="comida" name="comida">Comida</option>
+                    <option value="2" id="bebida" name="bebida">Bebida</option>
+                    <option value="3" id="postre" name="postre" selected>Postre</option>
+                  </select>
+            <?php } ?>
+            </div> 
+        </div>
+        <input type="hidden" id="disponible" name="disponible" value="<?=$disponibilidad?>"/>
+        <div class="row">
+            <div class="container"><span id="updateWrong" style="color:red"> <br></span></div>
+            <span class="col s6 center"><button onclick="updateProducto()" class="btn waves-effect waves-light brown lighten-1">Guardar</button></span>
+            <span class="col s6 center"><a class="waves-effect waves-light btn modal-trigger red lighten-1" href="#modal1">Eliminar</a></span>
+        </div>
+        <div class="container">
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+                <div class="container center">
+                    <i class="large material-icons prefix">report</i><h4>¿Seguro desea eliminar el producto: <?=$nombre?>?</h4>
+                    <br><p>Esta acción no se puede deshacer.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <a onclick="eliminarProducto()" class="modal-close waves-effect waves-green btn-flat">Eliminar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+     <div class="col s12 m6 l4">
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+ </section>

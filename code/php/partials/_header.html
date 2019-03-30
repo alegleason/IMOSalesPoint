@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+	<head>
+		<meta charset="UTF-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="../css/materialize.min.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<title>IMO IAP</title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<div class="nav-wrapper">
+          <?php if(allowed(50)) { ?> <!--registrarCompraEnPV-->
+            <a href="principal.php?nav=1" class="brand-logo"><i class="material-icons">home</i>LOGO IMO</a>
+          <?php } else { ?>
+            <a href="../index.php" class="brand-logo"><i class="material-icons">home</i>LOGO IMO</a>
+          <?php } ?>
+					<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+            <?php if(isset($_SESSION['idUsuario'])) { ?>
+              <?php if(allowed(53)) { ?> <!--editarMenu-->
+                  <li><a href="menu.php">Menú</a></li>
+              <?php } if(allowed(33)) { ?> <!--verSaldos-->
+                  <li><a href="pendientes.php">Saldos</a></li>
+              <?php } if(allowed(43)) { ?> <!--realizarCorte-->
+                  <li><a href="corte.php">Corte</a></li>
+              <?php } if(allowed(37)) { ?> <!--verComprasPendientes-->
+                  <li><a href="pedidos.php">Pedidos</a></li>
+              <?php } if(allowed(51)) { ?> <!--registrarPagoEnPV-->
+                  <li><a href="pago.php">Pagar</a></li>
+              <?php } if(allowed(38)) { ?> <!--verMisCompras-->
+                  <li><a href="pedidos.php">Mis pedidos</a></li>
+              <?php } if(allowed(48)) { ?> <!--editarMiUsuario-->
+                  <li><a href="nuevoUsuario.php">Mi información</a></li>
+              <?php } if(allowed(41)) { ?> <!--verMisCompras-->
+                  <li><a href="pendientes.php">Editar saldos</a></li>
+              <?php } if(allowed(35) && $_SESSION['rol']!=3) { ?> <!--editarProductos-->
+                  <li><a href="producto.php">Editar productos</a></li>
+              <?php } if(allowed(47)) { ?> <!--editarUsuarios-->
+                  <li><a href="nuevoUsuario.php">Editar usuarios</a></li>
+              <?php } if(allowed(45)) { ?> <!--generarReportes-->
+                  <li><a href="reportes.php">Reportes</a></li>
+              <?php } ?>
+      				<li><a href="logout.php">Salir</a></li>
+      			<?php } else { ?>
+      			    <li><a href="nuevoUsuario.php">Nuevo Usuario</a></li>
+      			<?php } ?>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<div class="contenido">

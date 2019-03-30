@@ -1,0 +1,31 @@
+<div class="container">
+  <section>
+    <h1>¡Hola, <?=$_SESSION['nombre']?>!</h1>
+  </section>
+
+  <section>
+    <h5>Ingresa un usuario para comenzar una venta: </h5>
+    <form action="principal.php" method="post">
+      <div class="row">
+        <div class="col m6 offset-m3">
+          <p class="red lighten-3"><span class="error"><?php echo $error;?></span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col m6 offset-m3">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="idComprador" name="idComprador" type="number" class="validate" required>
+          <label for="idComprador">ID Comprador</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m4 offset-m5">
+          <button class="btn waves-effect waves-light small-font brown lighten-3" type="submit">Iniciar venta
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+</div>
