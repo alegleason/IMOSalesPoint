@@ -1,0 +1,75 @@
+<main>
+ 	<div class="container">
+ 		<div class="section">
+ 			<div class="row">
+ 				<div class="col s12 m12 l12">
+ 					<blockquote><h4>Saldo pendiente</h4></blockquote>
+ 					<p>Aquí puedes pagar tu saldo pendiente con PayPal, si quieres hacerlo en efectivo favor de acudir al punto de venta.</p>
+ 					<p>Tu saldo actual es de $<?=$_SESSION['deuda']?>.</p>
+ 					<div class="payment-container">
+ 						<h5 class="center">Paga tu saldo pendiente</h5>
+
+ 						<form action="checkout.php" method="post" autocomplete="off">
+ 							<label for="amount">
+ 								Monto
+ 								<input type="number" name="price" id="price" min="50" required>
+ 							</label>
+ 							<input class="waves-effect waves-light btn-large brown lighten-4" type="submit" value="Pagar">
+ 						</form>
+ 						<p>Serás redirigido a PayPal para completar el pago. Recuerda que la cantidad mínima a abonar es de $50.</p>
+ 					</div>
+
+
+
+ 					<!--
+ 					<table class="centered big-table">
+ 						<thead>
+ 							<tr>
+ 								<th>Fecha de compra</th>
+ 								<th>Artículo</th>
+ 								<th>Cantidad</th>
+ 								<th>Precio</th>
+ 								<th>Total</th>
+ 							</tr>
+ 						</thead>
+ 						<tbody>
+ 							<tr>
+ 								<td>18 de febrero del 2019</td>
+ 								<td>Postre 2</td>
+ 								<td>1</td>
+ 								<td>$15</td>
+ 								<td>$15</td>
+ 							</tr>
+ 							<tr>
+ 								<td rowspan="2">21 de febrero del 2019</td>
+ 								<td>Comida 1</td>
+ 								<td>2</td>
+ 								<td>$20</td>
+ 								<td>$40</td>
+ 							</tr>
+ 							<tr>
+ 								<td>Bebida 2</td>
+ 								<td>1</td>
+ 								<td>$10</td>
+ 								<td>$10</td>
+ 							</tr>
+ 							<tr>
+ 								<td></td><td></td><td></td><td></td><td><strong>$65</strong></td>
+ 							</tr>
+
+ 						</tbody>
+ 					</table>
+ 				<div class="row">
+ 		<div class="col s12 push-s8">
+ 			<button class="btn waves-effect waves-light brown lighten-3" type="submit" name="action">Abonar
+ 				<i class="material-icons right">monetization_on</i>
+ 			</button>
+ 			<img src="../img/paypal.gif">
+ 		</div>
+
+ 	</div>-->
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </main>

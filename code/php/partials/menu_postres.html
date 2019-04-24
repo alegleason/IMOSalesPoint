@@ -1,0 +1,47 @@
+<div class="row no-margin-bottom">
+  <div class="col m12">
+    <div class="input-field col m10 offset-m1">
+      <i class="material-icons prefix search-icon">search</i>
+      <input type="text" id="postres_search" onkeyup="sendRequestPostres()">
+      <label for="postres_search" class="search-label">Buscar</label>
+    </div>
+
+  </div>
+
+  <div id="contenido" name="contenido" class="scroll">
+  </div>
+
+  <div class="row inferior">
+    <div class="col m9">
+      <a class="waves-effect waves-light btn indigo darken-1 wide-btn valign-wrapper" href="menu.php">Ok</a>
+    </div>
+    <div class="col m3">
+      <a class="waves-effect waves-light btn orange darken-1 wide-btn valign-wrapper" href="producto.php">Agregar / Modificar Producto</a>
+    </div>
+  </div>
+
+</div>
+<script>
+      function loadPostres() {
+        sendRequestPostres();
+      }
+      window.onload = loadPostres;
+</script>
+  <style type="text/css">
+    body,html{
+      height:100%;
+    }
+    .inferior{
+        position:absolute;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        z-index:0;
+     }
+     .scroll
+      {
+      	width:100%;
+      	height:30vw;
+      	overflow: auto;
+      }
+  </style>

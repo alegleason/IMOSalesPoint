@@ -1,0 +1,82 @@
+<br>
+
+<section>
+ <div class="container">
+   <div class="row">
+     <div class="col s12 m10 l8">
+      <div>
+       <br>
+       <h5><strong> <i class="material-icons prefix">create</i>Modificar Usuarios</strong></h5>
+       <div class="input-field col m10 offset-m1">
+        <i class="material-icons prefix search-icon">search</i>
+        <input type="text" id="usuarios_act_search" name="usuarios_act_search" onkeyup="sendModificarUsuariosAct()">
+        <label for="usuarios_act_search" class="search-label">Buscar</label>
+      </div>
+      <div class="col s12 scroll" id="searchResultsUsersAct" name="searchResultsUsersAct"></div>
+      </div>
+      
+      <div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr><br>
+        <h5><strong> <i class="material-icons prefix">build</i>Reactivar Usuario</strong></h5>
+
+          <div class="input-field col m10 offset-m1">
+            <i class="material-icons prefix search-icon">search</i>
+            <input type="text" id="usuarios_inact_search" name="usuarios_inact_search" onkeyup="sendModificarUsuariosInact()">
+            <label for="usuarios_inact_search" class="search-label">Buscar</label>
+          </div>
+          <div class="col s12 scroll" id="searchResultsUsersInact" name="searchResultsUsersInact"></div>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
+          
+        
+      </div>
+     </div>
+     <div class="col s12 m6 l4">
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+ </section>
+       <style>
+        .scroll
+        	{
+        	width:200px;
+        	height:300px;
+        	overflow: auto;
+        	}
+        	button{
+        	 width:100px;
+        	}
+      </style>
+      
+      <script type="text/javascript">
+        function sendModificarUsuariosAct(){
+            $.get( "controller_modificar_usuarios.php", { pattern: document.getElementById('usuarios_inact_search').value, type:1 })
+                  .done(function( data ) {
+                      var ajaxResponse = document.getElementById('searchResultsUsersAct');
+                      ajaxResponse.innerHTML = data;
+                      ajaxResponse.style.visibility = "visible";
+                  });
+        }
+        function loadTodoUsuariosAct() {
+            sendModificarUsuariosAct();
+        }
+       window.onload = loadTodoUsuariosAct;
+       setInterval(loadTodoUsuariosAct,1000);
+       
+       function sendModificarUsuariosInact(){
+           $.get( "controller_modificar_usuarios.php", { pattern: document.getElementById('usuarios_inact_search').value, type:3 })
+                  .done(function( data ) {
+                      var ajaxResponse = document.getElementById('searchResultsUsersInact');
+                      ajaxResponse.innerHTML = data;
+                      ajaxResponse.style.visibility = "visible";
+                  });
+       }
+       
+       function loadTodoUsuariosInact() {
+            sendModificarUsuariosInact();
+        }
+       window.onload = loadTodoUsuariosInact;
+       setInterval(loadTodoUsuariosInact,1000);
+      </script>
+      
+      
+      

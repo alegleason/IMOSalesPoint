@@ -1,0 +1,75 @@
+<br>
+<section>
+ <div class="container">
+   <div class="row">   
+     <div class="col s12 m10 l8">
+          <div>
+            <h5><strong> <i class="material-icons prefix">account_circle</i> Mis Datos</strong></h5><br><br>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="nameU"><h7><strong>Nombre</strong></h7></label>
+                    <input type="text" id="nameU" name="nameU" value="<?=$nombre?>" onkeyup="validarNombreUsuario();">
+                    <span id="nameWrong" style="color:red"> </span>
+                </div>
+                <div class="input-field col s6">
+                    <label for="idU"><h7><strong>Id Usuario</strong></h7></label>
+                    <input type="text" id="idU" name="idU" value="<?=$id?>" readonly="readonly"/>
+                </div>
+            </div>
+            <div class=row>
+                <div class="input-field col s6">
+                    <label for="apellidoP"><h7><strong>Apellido Paterno</strong></h7></label>
+                    <input type="text" id="apellidoP" name="apellidoP" value="<?=$apellidoP?>" onkeyup="validarApellidoPUsuario();">
+                    <span id="apellidoPWrong" style="color:red"> </span>
+                </div>
+                <div class="input-field col s6">
+                    <label for="apellidoM"><h7><strong>Apellido Materno</strong></h7></label>
+                    <input type="text" id="apellidoM" name="apellidoM" value="<?=$apellidoM?>" onkeyup="validarApellidoMUsuario()">
+                    <span id="apellidoMWrong" style="color:red"> </span>
+                </div>
+            </div>
+            
+            <div class=row>
+                <div class="input-field col s6">
+                    <label for="tel"><h7><strong>Teléfono</strong></h7></label>
+                    <input type="tel" id="telefono" name="telefono" value="<?=$telefono?>" onkeyup="validarTelefono()">
+                    <span id="telWrong" style="color:red"> </span>
+                </div>
+                <div class="input-field col s6">
+                    <label for="correo"><h7><strong>Correo electrónico</strong></h7></label>
+                    <input type="text" id="correo" name="correo" value="<?=$correo?>" onkeyup="validarCorreo()">
+                    <span id="correoWrong" style="color:red"> </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <?php if($idrol==1) { ?> 
+                        <input type="text" id="roles" name="roles" value="Administrador" readonly="readonly">
+                    <?php }else if($idrol==2){ ?>
+                        <input type="text" id="roles" name="roles" value="Comprador" readonly="readonly">
+                    <?php } else {?>
+                        <input type="text" id="roles" name="roles" value="Vendedor" readonly="readonly">
+                    <?php } ?>
+                </div>
+                <div class="input-field col s6">
+                    <label for="fechn"><h7><strong>Fecha de Nacimiento</strong></h7></label>
+                    <input type="text" id="fechn" name="fechn" value="<?=$fechaNacimiento?>" readonly="readonly">
+                </div>
+            </div>
+            
+                
+                <br><br>
+
+            <div class="container">
+                <span id="saveWrong" style="color:red"></span>
+                <span><button onclick="guardarDatosUsuario()" class="btn waves-effect waves-light brown lighten-1">Guardar</button></span>
+            </div>
+          </div>
+         </div>
+     
+     <div class="col s12 m6 l4">
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+</section>

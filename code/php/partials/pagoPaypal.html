@@ -1,0 +1,75 @@
+<div class="row no-margin-bottom">
+	<div class="col m9">
+		<div class="row">
+			<div class="col m12 big-scrollable-table">
+				<a href="modificar_pedido.php">
+					<?=$table?>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col m12">
+			<!-- Modal Trigger -->
+				<a href="#modal1" class="waves-effect waves-light btn green darken-1 wide-btn valign-wrapper modal-trigger">Pagar total</a>
+			  	<!-- Modal Structure-->
+			  <div id="modal1" class="modal">
+			    <div class="modal-content">
+			      <blockquote><h4>Pagar con PayPal</h4></blockquote>
+						<br>
+						<div class="row">
+							<div class="col m6 offset-m3">
+								<form action="checkout.php" method="post" autocomplete="off">
+									<input class="waves-effect waves-light btn lime lighten-1 wide-btn valign-wrapper" type="submit" value="Pagar" name="payP" id="payP">
+									<p>Serás redirigido a PayPal para completar el pago.</p>
+								</form>
+							</div>
+						</div>
+			    </div>
+			  </div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col m3">
+		<div class="row">
+			<div class="col m12">
+				<a class="waves-effect waves-light btn light-blue darken-1 wide-btn valign-wrapper" href="principal.php"><i class="material-icons bigger-icon">home</i></a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col m12">
+				<a href="pago.php?opcionPago=fiar" class="waves-effect waves-light btn red darken-1 large-btn valign-wrapper">Fiar total</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col m12">
+
+				<!-- Modal Trigger -->
+				<a href="#modal2" class="waves-effect waves-light btn lime darken-1 large-btn valign-wrapper modal-trigger">Otra cantidad</a>
+			  <!-- Modal Structure -->
+			  <div id="modal2" class="modal">
+			    <div class="modal-content">
+						<blockquote><h4>Pagar con PayPal</h4></blockquote>
+			      <h3 class="center">Cantidad a pagar</h3>
+						<div class="row">
+							<form action="checkout.php" method="post" autocomplete="off">
+ 							<label for="amount">
+ 								Monto
+ 								<input type="number" name="price" id="price" min="50" required>
+ 							</label>
+							<p>Serás redirigido a PayPal para completar el pago.</p>
+ 							<input class="waves-effect waves-light btn-large brown lighten-4" type="submit" value="Pagar">
+ 						</form>
+					</div>
+			    </div>
+			  </div>
+
+			</div>
+		</div>
+	</div>
+</div>

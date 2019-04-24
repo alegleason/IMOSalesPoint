@@ -1,0 +1,31 @@
+<div class="container">
+  <section>
+    <h2>Registrar un pago</h2>
+  </section>
+
+  <section>
+    <h5>Ingresa el ID del usuario al que se le abonará el pago: </h5>
+    <form action="pago.php" method="post">
+      <div class="row">
+        <div class="col m6 offset-m3">
+          <p class="red lighten-3"><span class="error"><?php echo $error;?></span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col m6 offset-m3">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="idComprador" name="idComprador" type="number" class="validate" required>
+          <label for="idComprador">ID Comprador</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m4 offset-m4">
+          <button class="btn waves-effect waves-light small-font brown lighten-3" type="submit">Opciones de pago
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+</div>

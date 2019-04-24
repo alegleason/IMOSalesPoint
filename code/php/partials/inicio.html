@@ -1,0 +1,61 @@
+<div class="container">
+ <section>
+   <div class="row">
+     <div class="col m7">
+       <h4>Buen día...</h4>
+       <div class="row">
+         <div class="col m12">
+           <i class="material-icons prefix">account_circle</i>
+           <p>¡Bienvenidx <?=$_SESSION['nombre']?>!</p>
+           <p>Usuario: <?=$_SESSION['idUsuario']?></p>
+           <?php if(allowed(34)) { ?> <!--verMiSaldo-->
+             <?php if($_SESSION['deuda'] >= 0) { ?> <!--verMiSaldo-->
+               <p style="color:red;">Saldo pendiente: $<?=$_SESSION['deuda']?></p>
+             <?php } ?>
+             <?php if($_SESSION['deuda'] < 0) { ?> <!--verMiSaldo-->
+               <p style="color:green;">Saldo a favor: $<?=$_SESSION['deuda']*-1?></p>
+             <?php } ?>
+           <?php } ?>
+         </div>
+       </div>
+     </div>
+     <div class="col m5">
+       <br>
+       <span id="date" class="center">DATE</span>
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+   <div class="row">
+     <?php if(allowed(39)) { ?> <!--registrarCompraEnLinea-->
+       <div class="col m2">
+           <a  href="principal.php?nuevo=1" class="waves-effect waves-light btn brown lighten-3"><i class="material-icons right">send</i>Ordenar algo</a>
+       </div>
+     <?php } ?>
+     <?php if(allowed(40)) { ?> <!--registrarPagoEnLinea-->
+       <div class="col m3">
+         <form action="pagar_saldo.php">
+           <button class="btn waves-effect waves-light brown lighten-3" name="pagar_saldo" type="submit">Abonar a Saldo
+             <i class="material-icons right">monetization_on</i>
+           </button>
+         </form>
+       </div>
+     <?php } ?>
+   </div>
+  </section>
+
+  <?php if(allowed(36)) { ?> <!--verProductosDisponibles-->
+    <br><br>
+    <div class="row">
+      <div class="col m6" id="menu">
+        <h5><i class="material-icons prefix">free_breakfast
+        </i><strong> Menú recomendado del día</strong></h5>
+        <?=$table?>
+        <?=$table2?>
+        <?=$table3?>
+     </div>
+     <div class="col m6">
+       <iframe src="https://calendar.google.com/calendar/embed?src=1cr1d6f347ljqg2aucu20hv5b4%40group.calendar.google.com&ctz=America%2FMexico_City" style="border: 0" width="550" height="350" frameborder="0" scrolling="no"></iframe>
+     </div>
+   </div>
+ <?php } ?>
+</div>

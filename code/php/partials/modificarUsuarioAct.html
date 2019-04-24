@@ -1,0 +1,218 @@
+<br>
+
+<section>
+ <div class="container">
+   <div class="row">
+     <?php if($activo==1) { ?>
+          <div class="col s12 m10 l8">
+          <div>
+            <h5><strong> <i class="material-icons prefix">create</i>Datos del Usuario</strong></h5>
+            <input type="hidden" id="idU" name="idU" value="<?=$id?>"/>
+            <label for="nameU"><h7><strong>Nombre</strong></h7></label>
+            <input type="text" id="nameU" name="nameU" value="<?=$nombre?>" readonly="readonly">
+            <!--<span id="namePWrong" style="color:red"> </span>-->
+            <br><br>
+            <div class=row>
+                <div class="input-field col s6">
+                    <label for="apellidoP"><h7><strong>Apellido Paterno</strong></h7></label>
+                    <input type="text" id="apellidoP" name="apellidoP" value="<?=$apellidoP?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+                <div class="input-field col s6">
+                    <label for="apellidoM"><h7><strong>Apellido Materno</strong></h7></label>
+                    <input type="text" id="apellidoM" name="apellidoM" value="<?=$apellidoM?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+            </div>
+            
+            <div class=row>
+                <div class="input-field col s6">
+                    <label for="tel"><h7><strong>Teléfono</strong></h7></label>
+                    <input type="tel" id="tel" name="tel" value="<?=$telefono?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+                <div class="input-field col s6">
+                    <label for="correo"><h7><strong>Correo electrónico</strong></h7></label>
+                    <input type="text" id="correo" name="correo" value="<?=$correo?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+            </div>
+            <?php if($idrol==1) { ?> 
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <select id="roles" name="roles">
+                        <option value="" disabled selected>Elegir una opción</option>
+                        <option value="1" id="admin" name="admin" selected>Administrador</option>
+                        <option value="2" id="comprador" name="comprador">Comprador</option>
+                        <option value="3" id="vendedor" name="vendedor">Vendedor</option>
+                      </select>
+                <?php }else if($idrol==2){ ?>
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <select id="roles" name="roles">
+                        <option value="" disabled selected>Elegir una opción</option>
+                        <option value="1" id="admin" name="admin">Administrador</option>
+                        <option value="2" id="comprador" name="comprador" selected>Comprador</option>
+                        <option value="3" id="vendedor" name="vendedor">Vendedor</option>
+                      </select>
+                <?php } else {?>
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <select id="roles" name="roles">
+                        <option value="" disabled selected>Elegir una opción</option>
+                        <option value="1" id="admin" name="admin">Administrador</option>
+                        <option value="2" id="comprador" name="comprador">Comprador</option>
+                        <option value="3" id="vendedor" name="vendedor" selected>Vendedor</option>
+                      </select>
+                <?php } ?>
+                
+                <br><br>
+            <div class="row">
+                <div class="container"><span id="updateWrong" style="color:red"> <br></span></div>
+                <span class="col s6 center"><button onclick="updateUsuarioAct()" class="btn waves-effect waves-light brown lighten-1">Guardar</button></span>
+                <span class="col s6 center"><a class="waves-effect waves-light btn modal-trigger red lighten-1" href="#modal1">Desactivar</a></span>
+            </div>
+            <div class="container">
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="container center">
+                        <i class="large material-icons prefix">report</i><h4>¿Seguro desea desactivar el usuario: <?=$nombre?> <?=$apellidoP?> <?=$apellidoM?>?</h4>
+                        <br><p>Esta acción no se puede deshacer.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <a onclick="eliminarUsuarioAct()" class="modal-close waves-effect waves-green btn-flat">Desactivar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+     <?php }else if($activo==0){ ?>
+         <div class="col s12 m10 l8">
+          <div>
+            <h5><strong> <i class="material-icons prefix">create</i>Datos del Usuario</strong></h5><br><br>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="nameU"><h7><strong>Nombre</strong></h7></label>
+                    <input type="text" id="nameU" name="nameU" value="<?=$nombre?>" readonly="readonly">
+                    <!--<span id="namePWrong" style="color:red"> </span>-->
+                </div>
+                <div class="input-field col s6">
+                    <label for="idU"><h7><strong>Id Usuario</strong></h7></label>
+                    <input type="text" id="idU" name="idU" value="<?=$id?>" readonly="readonly"/>
+                </div>
+            </div>
+            <div class=row>
+                <div class="input-field col s6">
+                    <label for="apellidoP"><h7><strong>Apellido Paterno</strong></h7></label>
+                    <input type="text" id="apellidoP" name="apellidoP" value="<?=$apellidoP?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+                <div class="input-field col s6">
+                    <label for="apellidoM"><h7><strong>Apellido Materno</strong></h7></label>
+                    <input type="text" id="apellidoM" name="apellidoM" value="<?=$apellidoM?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+            </div>
+            
+            <div class=row>
+                <div class="input-field col s6">
+                    <label for="tel"><h7><strong>Teléfono</strong></h7></label>
+                    <input type="tel" id="tel" name="tel" value="<?=$telefono?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+                <div class="input-field col s6">
+                    <label for="correo"><h7><strong>Correo electrónico</strong></h7></label>
+                    <input type="text" id="correo" name="correo" value="<?=$correo?>"  readonly="readonly">
+                    <!--<span id="descriptionWrong" style="color:red"> </span>-->
+                </div>
+            </div>
+            <?php if($idrol==1) { ?> 
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <select id="roles" name="roles" disabled="true">
+                        <option value="1" id="admin" name="admin" selected>Administrador</option>
+                    </select>
+                <?php }else if($idrol==2){ ?>
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <select id="roles" name="roles" disabled="true">
+                        <option value="2" id="comprador" name="comprador" selected>Comprador</option>
+                    </select>
+                <?php } else {?>
+                    <label for="roles"><h7><strong>Rol de Usuario</strong></h7></label>
+                    <select id="roles" name="roles" disabled="true">
+                        <option value="3" id="vendedor" name="vendedor" selected>Vendedor</option>
+                    </select>
+                <?php } ?>
+                
+                <br><br>
+
+            <div class=" container row">
+                <span><a class="waves-effect waves-light btn modal-trigger red lighten-1" href="#modal1">Reactivar Usuario</a></span>
+            </div>
+            <div class="container">
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="container center">
+                        <i class="large material-icons prefix">report</i><h4>¿Seguro desea activar el usuario: <?=$nombre?> <?=$apellidoP?> <?=$apellidoM?>?</h4>
+                        <br><p>Esta acción hará que el usuario pueda hacer uso del sistema.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <a onclick="activarUsuario()" class="modal-close waves-effect waves-green btn-flat">Reactivar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+     <?php } ?>
+     
+     <div class="col s12 m6 l4">
+       <img src="../img/imo.jpeg" alt="IMO logo" class="center">
+     </div>
+   </div>
+ </section>
+<script type="text/javascript">
+    
+function updateUsuarioAct() {
+            var rol = document.getElementById("roles");
+            var opcion = rol.options[rol.selectedIndex].value;
+            if(opcion == "" || opcion==null){
+                opcion=-1;
+                document.getElementById("updateWrong").innerHTML="** No se pudo agregar el producto porque no se a selecionado el rol";
+                return false;
+            }
+            if(opcion!=-1){
+                document.getElementById("updateWrong").innerHTML="";
+                $.get( "controller_modificar_usuarios.php", { type:2, id:document.getElementById('idU').value, rol:opcion })
+                      .done(function( data ) {
+                          M.toast({html: 'Usuario Actualizado Exitosamente', classes: 'rounded',displayLength:3000});
+                          setTimeout(changeView(2),4500);
+                      })
+                      .fail(function(data) {
+                            M.toast({html: 'Usuario NO Actualizado', classes: 'rounded',displayLength:3000});
+                            setTimeout(changeView(2),4500);
+                      });
+            }
+}
+
+function eliminarUsuarioAct(){
+    $.get( "controller_modificar_usuarios.php", { type:4, id:document.getElementById('idU').value })
+                      .done(function( data ) {
+                          M.toast({html: 'Usuario Desactivado Exitosamente', classes: 'rounded',displayLength:3000});
+                          setTimeout(changeView(2),4500);
+                      })
+                      .fail(function(data) {
+                            M.toast({html: 'Usuario NO Desactivado', classes: 'rounded',displayLength:3000});
+                            setTimeout(changeView(2),4500);
+                      });
+}
+
+function activarUsuario(){
+    $.get( "controller_modificar_usuarios.php", { type:5, id:document.getElementById('idU').value })
+                      .done(function( data ) {
+                          M.toast({html: 'Usuario Reactivado Exitosamente', classes: 'rounded',displayLength:3000});
+                          setTimeout(changeView(2),4500);
+                      })
+                      .fail(function(data) {
+                            M.toast({html: 'Usuario NO Reactivado', classes: 'rounded',displayLength:3000});
+                            setTimeout(changeView(2),4500);
+                      });
+}
+</script>

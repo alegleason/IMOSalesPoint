@@ -1,0 +1,98 @@
+<div class="row no-margin-bottom">
+	<div class="col m9">
+		<div class="row">
+			<div class="col m12 big-scrollable-table">
+				<a href="modificar_pedido.php">
+					<?=$table?>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col m12">
+
+				<!-- Modal Trigger -->
+				<a href="#modal1" class="waves-effect waves-light btn green darken-1 wide-btn valign-wrapper modal-trigger">Pagar total</a>
+			  <!-- Modal Structure -->
+			  <div id="modal1" class="modal">
+			    <div class="modal-content">
+			      <h4>Método de pago</h4>
+						<br>
+						<div class="row">
+							<form class="col m12" action="pago.php" method="get">
+								<input type="hidden" id="opcionPago" name="opcionPago" value="total">
+								<div class="row">
+									<div class="col m6">
+										<button class="btn waves-effect waves-light green darken-1 reciente-btn valign-wrapper" type="submit" name="efectivo" id="efectivo">Efectivo
+											<i class="material-icons left">attach_money</i>
+										</button>
+									</div>
+									<div class="col m6">
+										<button class="btn waves-effect waves-light blue darken-1 reciente-btn valign-wrapper" type="submit" name="tarjeta" id="tarjeta">Tarjeta
+											<i class="material-icons right">credit_card</i>
+										</button>
+									</div>
+								</div>
+				      </form>
+						</div>
+			    </div>
+			  </div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col m3">
+		<div class="row">
+			<div class="col m12">
+				<a class="waves-effect waves-light btn light-blue darken-1 wide-btn valign-wrapper" href="principal.php"><i class="material-icons bigger-icon">home</i></a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col m12">
+				<a href="pago.php?opcionPago=fiar" class="waves-effect waves-light btn red darken-1 large-btn valign-wrapper">Fiar total</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col m12">
+
+				<!-- Modal Trigger -->
+				<a href="#modal2" class="waves-effect waves-light btn lime darken-1 large-btn valign-wrapper modal-trigger">Otra cantidad</a>
+			  <!-- Modal Structure -->
+			  <div id="modal2" class="modal">
+			    <div class="modal-content">
+			      <h4>Cantidad a pagar</h4>
+						<div class="row">
+							<form class="col m12" action="pago.php" method="get">
+								<div class="row">
+					        <div class="input-field col m8 offset-m2">
+					          <input id="cantidad" name="cantidad" type="number" class="validate" required>
+					          <label for="cantidad">Cantidad</label>
+										<input type="hidden" id="opcionPago" name="opcionPago" value="otra">
+					        </div>
+					      </div>
+								<div class="row">
+									<h4>Método de pago</h4>
+									<br>
+									<div class="col m6">
+										<button class="btn waves-effect waves-light green darken-1 reciente-btn valign-wrapper" type="submit" name="efectivo" id="efectivo">Efectivo
+											<i class="material-icons left">attach_money</i>
+										</button>
+									</div>
+									<div class="col m6">
+										<button class="btn waves-effect waves-light blue darken-1 reciente-btn valign-wrapper" type="submit" name="tarjeta" id="tarjeta">Tarjeta
+											<i class="material-icons right">credit_card</i>
+										</button>
+									</div>
+								</div>
+				      </form>
+						</div>
+			    </div>
+			  </div>
+
+			</div>
+		</div>
+	</div>
+</div>

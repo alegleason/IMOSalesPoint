@@ -1,0 +1,218 @@
+<br>
+<main>
+	<section>
+		<div class="container">
+			<div class="row container center offset-s6">
+				<div>
+					<div class="row no-margin-bottom">
+						<div>
+							<h4 class="no-margin-bottom"><strong>Reporte del Día</strong></h4><br>
+						</div>
+						<div class="scroll">
+							<div class="container">
+								<div>
+									<h3 class="no-margin-bottom">Reporte de Ingresos</h3><br>
+								</div>
+								<div class"row">
+									<div class="col s6">
+										<p><h7><strong>Ganancia Total en Efectivo: </strong></h7>$ <?= $efectivo ?></p>
+					                </div>
+									<div class="col s6">
+					                    <p><h7><strong>Ganancia Total en Tarjeta: </strong></h7>$ <?= $tarjeta ?></p>
+					                </div>
+								</div>
+								<div class"row">
+									<div class="col s6">
+										<p><h7><strong>Ganancia Total en PayPal: </strong></h7>$ <?= $paypal ?></p>
+					                </div>
+									<div class="col s6">
+					                    <p><h7><strong>Ganancia Total Fiada: </strong></h7>$ <?= $fiado ?></p>
+					                </div>
+								</div>
+								<div class="row">
+									<div class="col s6">
+										<p><h7><strong>Cantidad Total sin Pago: </strong></h7>$ <?= $admin ?></p>
+					                </div>
+									<div class="col s6">
+					                    <p><h7><strong>Ganancia Total del Día: </strong></h7>$ <?= $total ?></p>
+					                </div>
+								</div>
+								<div>
+									<h3 class="no-margin-bottom">Reporte de Usuarios</h3><br>
+								</div>
+								<div class"row">
+									<div class="col s6">
+										<p><h7><strong>Usuario con Mayor Deuda: </strong></h7><?= $usuarioMayor ?></p>
+					                </div>
+									<div class="col s6">
+					                    <p><h7><strong>Usuario con Menor Deuda: </strong></h7><?= $usuarioMenor ?></p>
+					                </div>
+								</div>
+								<div class="row">
+									<div class="col s6">
+										<p><h7><strong>Promedio de Deuda de Usuarios: </strong></h7>$ <?= $promedio?></p>
+					                </div>
+									<div class="col s6">
+										<p><h7><strong>Mejor Vendedor : </strong></h7><?= $mejorVendedor ?></p>
+					                </div>
+								</div>
+								<div class"row">
+									<div class="col s6">
+					                    <p><h7><strong>Peor Vendedor: </strong></h7><?= $peorVendedor ?></p>
+					                </div>
+								</div>
+							</div>
+							<br><br>
+							<div class="container">
+								<div>
+									<h3 class="no-margin-bottom">Reporte de Ventas y Productos</h3><br>
+								</div>
+							</div>
+							<div id="reporte_diario" name="reporte_diario"></div>
+							<div id="reporte_diario_productos" name="reporte_diario_productos"></div>
+						</div>
+						
+					</div>
+					<div class="row no-margin-bottom">
+						<div>
+							<h4 class="no-margin-bottom">Reportes Mensuales</h4><br>
+							<div class="container center">
+								<div class="row">
+									<div class="col s6">
+										  <select id="meses" name="meses">
+					                        <option value="" disabled selected>Elegir una opción</option>
+					                        <option value="1" id="Enero" name="Enero">Enero</option>
+					                        <option value="2" id="Febrero" name="Febrero">Febrero</option>
+					                        <option value="3" id="Marzo" name="Marzo">Marzo</option>
+					                        <option value="4" id="Abril" name="Abril">Abril</option>
+					                        <option value="5" id="Mayo" name="Mayo">Mayo</option>
+					                        <option value="6" id="Junio" name="Junio">Junio</option>
+					                        <option value="7" id="Julio" name="Julio">Julio</option>
+					                        <option value="8" id="Agosto" name="Agosto">Agosto</option>
+					                        <option value="9" id="Septiembre" name="Septiembre">Septiembre</option>
+					                        <option value="10" id="Octubre" name="Octubre">Octubre</option>
+					                        <option value="11" id="Noviembre" name="Noviembre">Noviembre</option>
+					                        <option value="12" id="Diciembre" name="Diciembre">Diciembre</option>
+					                      </select>
+					                      <label>Mes</label>
+									</div>
+									<div class="col s6">
+										  <select id="anios" name="anios">
+					                        <option value="" disabled selected>Elegir una opción</option>
+					                        <option value="2019" id="2019" name="2019">2019</option>
+					                        <option value="2020" id="2020" name="2020">2020</option>
+					                        <option value="2021" id="2021" name="2021">2021</option>
+					                        <option value="2022" id="2022" name="2022">2022</option>
+					                        <option value="2023" id="2023" name="2023">2023</option>
+					                        <option value="2024" id="2024" name="2024">2024</option>
+					                        <option value="2025" id="2025" name="2025">2025</option>
+					                        <option value="2026" id="2026" name="2026">2026</option>
+					                        <option value="2027" id="2027" name="2027">2027</option>
+					                        <option value="2028" id="2028" name="2028">2028</option>
+					                        <option value="2029" id="2029" name="2029">2029</option>
+					                        <option value="2030" id="2030" name="2030">2030</option>
+					                      </select>
+					                      <label>Mes</label>
+									</div>
+								</div>
+								<div class="s4 offset-s4 center">
+									<a id="submit" name="submit" class="btn waves-effect waves-light brown lighten-1">Generar Reporte</a>
+								</div>
+								
+							</div>
+						</div>
+						
+						<!--<div class="scroll">
+							<div id="reporte_diario" name="reporte_diario"></div>
+							<div id="reporte_diario_productos" name="reporte_diario_productos"></div>
+						</div>-->
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<!--<form method="POST" action="reportes.php" id="forma">
+						<button class="btn waves-effect waves-light brown lighten-3">Reporte del día</button>
+						
+						<a class='dropdown-trigger btn brown lighten-3' href='#' data-target='dropdown1'>Reporte Mensual</a>
+						
+						<ul id='dropdown1' class='dropdown-content'>
+							<li><a href="#!" class="drop-content" value="enero">Enero</a></li>
+							<li><a href="#!" class="drop-content" value="febrero">Febrero</a></li>
+							<li><a href="#!" class="drop-content" value="marzo">Marzo</a></li>
+							<li><a href="#!" class="drop-content" value="abril">Abril</a></li>
+							<li><a href="#!" class="drop-content" value="mayo">Mayo</a></li>
+							<li><a href="#!" class="drop-content" value="junio">Junio</a></li>
+							<li><a href="#!" class="drop-content" value="julio">Julio</a></li>
+							<li><a href="#!" class="drop-content" value="agosto">Agosto</a></li>
+							<li><a href="#!" class="drop-content" value="septiembre">Septiembre</a></li>
+							<li><a href="#!" class="drop-content" value="octubre">Octubre</a></li>
+							<li><a href="#!" class="drop-content" value="noviembre">Noviembre</a></li>
+							<li><a href="#!" class="drop-content" value="diciembre">Diciembre</a></li>
+						</ul>
+						
+						<a class='dropdown-trigger btn brown lighten-3' href='#' data-target='dropdown2'>Reporte Anual</a>
+						
+						<ul id='dropdown2' class='dropdown-content'>
+							<li><a href="#!" class="drop-content" value="2018">2018</a></li>
+							<li><a href="#!" class="drop-content" value="2019">2019</a></li>
+							<li><a href="#!" class="drop-content" value="2020">2020</a></li>
+							<li><a href="#!" class="drop-content" value="2021">2021</a></li>
+							<li><a href="#!" class="drop-content" value="2022">2022</a></li>
+							<li><a href="#!" class="drop-content" value="2023">2023</a></li>
+							<li><a href="#!" class="drop-content" value="2024">2024</a></li>
+							<li><a href="#!" class="drop-content" value="2025">2025</a></li>
+							<li><a href="#!" class="drop-content" value="2026">2026</a></li>
+							<li><a href="#!" class="drop-content" value="2027">2027</a></li>
+							<li><a href="#!" class="drop-content" value="2028">2028</a></li>
+							<li><a href="#!" class="drop-content" value="2029">2029</a></li>
+						</ul>
+					</form>
+					<?=$table?>-->
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#reporte_diario').load('reporte_diario_grafica_lineal.php');
+		$('#reporte_diario_productos').load('reporte_diario_productos_grafica_pastel.php');
+		//$('#reporte_mensual_ingresos').load('reporte_mensual_ingresos.php');
+	});
+</script>
+<style type="text/css">
+    body,html{
+      height:100%;
+    }
+    .scroll{
+      width:100%;
+      height:40vw;
+      overflow: auto;
+      border-style: solid;
+  	  border-width: 3px;
+    }
+    
+    h3 {
+	  text-align: center;
+	  color: #562A2A;
+	  line-height: 100%;
+	  font-size: 2em;
+	}
+	
+	h4 {
+	  text-align: center;
+	  color: #562A2A;
+	  line-height: 100%;
+	  font-size: 2.5em;
+	}
+  </style>

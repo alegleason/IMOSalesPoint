@@ -1,0 +1,130 @@
+ <div class="row no-margin-bottom">
+  <div class="col m12">
+    <h3>Corte de caja</h3>
+  </div>
+
+  <div class="row container">
+    <div class="col m12">
+      <table class="corte-table">
+        <thead>
+          <tr>
+            <th>Descripción</th><th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monto Previo en Caja</td><td>$ 200</td>
+          </tr>
+          <tr>
+            <td>Ingresos en Efectivo</td><td>$ <?=$efectivo?></td>
+            <input type="hidden" name="efectivo" id="efectivo" value="<?=$efectivo?>"/>
+          </tr>
+          <tr>
+            <td>Ingresos por Pago con Tarjeta</td><td>$ <?=$tarjeta?></td>
+            <input type="hidden" name="tarjeta" id="tarjeta" value="<?=$tarjeta?>"/>
+          </tr>
+          <tr>
+            <td>Monto Fiado</td><td>$ <?=$fiar?></td>
+            <input type="hidden" name="fiar" id="fiar" value="<?=$fiar?>"/>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container">
+    <br>
+    <div class="input-field col s6 offset-m3">
+          <div class="col m1 offset-m2">
+            <p>$</p>
+          </div>
+          <div class="col m7 center">
+            <input class="center" placeholder="350.00" id="static" type="number" class="validate" value="<?=$total?>" readonly="readonly">
+            <label for="static">Monto Calculado</label>
+          </div>
+        </div>
+    
+  </div>
+  <br><br><br><br><br><br>
+  <!--<div class="row">
+    
+    <form class="form_corte col m6 offset-m3">
+      <div class="row">
+        <div class="input-field col s6">
+          <div class="col m1 offset-m2">
+            <p>$</p>
+          </div>
+          <div class="col m7 center">
+            <input class="center" placeholder="350.00" id="static" type="number" class="validate" value="<?=$total?>" readonly="readonly">
+            <label for="static">Monto Calculado</label>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <div class="col m1 offset-m2">
+            <p>$</p>
+          </div>
+          <div class="col m7 center">
+            <input class="center" id="monto_corte" name="monto_corte" type="number" value="<?=$total?>" onkeyup="validarMonto()">
+            <label for="monto_corte">Monto actual en caja</label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>-->
+  <div class="row">
+    <div class="col m9">
+      <span id="corteWrong" name="corteWrong" style="color:red"> </span>
+      <a class="waves-effect waves-light btn green darken-1 wide-btn valign-wrapper" onclick="validarCorte()" href="logout.php">Enviar corte</a>
+    </div>
+    <div class="col m3">
+      <a class="waves-effect waves-light btn light-blue darken-1 wide-btn valign-wrapper" href="principal.php"><i class="material-icons bigger-icon">home</i></a>
+    </div>
+  </div>
+</div>
+<script>
+  function validarMonto(){
+    var monto=document.getElementById("monto_corte").value;
+    var characters=/[%&%*?¿#@$]/;
+    var min=/[a-z]/;
+    var may=/[A-Z]/;
+    if(monto==""){
+        document.getElementById("montoWrong").innerHTML="** Favor de ingresar el monto correcto en caja";
+        return false;
+    }
+    if(characters.test(monto) || min.test(monto) || may.test(monto)){
+        document.getElementById("montoWrong").innerHTML="** El monto solo puede incluir números";
+        return false;
+    }
+    document.getElementById("montoWrong").innerHTML=" ";
+    return true;
+}
+
+function validarCorte(){
+  var efectivo=document.getElementById("efectivo").value;
+  var tarjeta=document.getElementById("tarjeta").value;
+  var fiado=document.getElementById("fiar").value;
+  var total=document.getElementById("monto_corte").value;
+  $.get( "send_corte_mail.php", { monto:total, efec:efectivo, tar:tarjeta, fiar:fiado })
+                      .done(function( data ) {
+                          M.toast({html: 'El Corte de Caja se ha Realizado Exitosamente', classes: 'rounded',displayLength:2000});
+                          setTimeout(changeView(4),2500);
+                      })
+                      .fail(function(data) {
+                            M.toast({html: 'El Corte de Caja NO se ha Realizado', classes: 'rounded',displayLength:2000});
+                            setTimeout(changeView(4),2500);
+                      });
+  /*if(validarMonto()){
+    $.get( "send_corte_mail.php", { monto:total, efec:efectivo, tar:tarjeta, fiar:fiado })
+                      .done(function( data ) {
+                          M.toast({html: 'El Corte de Caja se ha Realizado Exitosamente', classes: 'rounded',displayLength:2000});
+                          setTimeout(changeView(4),2500);
+                      })
+                      .fail(function(data) {
+                            M.toast({html: 'El Corte de Caja NO se ha Realizado', classes: 'rounded',displayLength:2000});
+                            setTimeout(changeView(4),2500);
+                      });
+  }else{
+    document.getElementById("corteWrong").innerHTML="** No se pudo realizar el corte por datos erróneos";
+    return false;
+  }*/
+}
+</script>
