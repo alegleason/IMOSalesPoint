@@ -4,6 +4,7 @@
 
 	if(isset($_SESSION["idUsuario"]) && allowed(45)) {
 		include 'partials/_header.html';
+<<<<<<< HEAD
 		date_default_timezone_set('America/Mexico_City');
     	$horaFechaInicio = date("Y-m-d ");
     	$horaFechaFin = date("Y-m-d ");
@@ -70,6 +71,8 @@
 	    
 	    
 	    
+=======
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 		include "partials/reportes.html";
 		footerhtml();
 	} else {

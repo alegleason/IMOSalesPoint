@@ -10,7 +10,10 @@ function addDatos(){
 	/*var text = "<br>" + "Revisa tus datos" + "<br>" + "Nombre: " + nombre + "<br>" + " Apellido: " + apellido + "<br>"
 	+ " Dirección: " + direccion + "<br>" + " Email: " + email + "<br>" + " Teléfono: " + telefono;
 	document.getElementById("res").innerHTML = text;*/
+<<<<<<< HEAD
 	var idx = email.indexOf('@imoiap.edu.mx');
+=======
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
 	if(nombre==""||!nombre.match(/[a-z]/)){
 		document.getElementById("nameWrong").innerHTML="** Favor de colocar tu nombre";
@@ -46,12 +49,15 @@ function addDatos(){
 	}else{
 		document.getElementById("emailWrong").innerHTML=" ";
 	}
+<<<<<<< HEAD
 	if (idx == -1) {
 	  document.getElementById("emailWrong").innerHTML="** El correo debe terner el dominio @imoiap.edu.mx";
 	  return false;
 	}else{
 		document.getElementById("emailWrong").innerHTML=" ";
 	}
+=======
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
 	if(telefono==""){
 		document.getElementById("phoneWrong").innerHTML="** Favor de colocar tu teléfono";
@@ -89,7 +95,11 @@ function addDatos(){
 	}
 
 	if(a!=b){
+<<<<<<< HEAD
 		document.getElementById("messagess").innerHTML="** Las contraseñas no coidddnciden";
+=======
+		document.getElementById("messagess").innerHTML="** Las contraseñas no coinciden";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 		return false;
 	}else{
 		document.getElementById("messagess").innerHTML=" ";

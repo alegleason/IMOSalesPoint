@@ -6,8 +6,11 @@
 		<link href="../css/materialize.min.css" rel="stylesheet">
 		<link href="../css/styles.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
 		<script  src="../js/jquery-3.4.0.min.js"></script>
 		<script src="../js/plotly-latest.min.js"></script>
+=======
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 		<title>IMO IAP</title>
 	</head>
 
@@ -32,6 +35,7 @@
               <?php } if(allowed(37)) { ?> <!--verComprasPendientes-->
                   <li><a href="pedidos.php">Pedidos</a></li>
               <?php } if(allowed(51)) { ?> <!--registrarPagoEnPV-->
+<<<<<<< HEAD
                   <li><a href="pago.php?nav=1">Pagar</a></li>
               <?php } if(allowed(38)) { ?> <!--verMisCompras-->
                   <li><a href="pedidos.php">Mis pedidos</a></li>
@@ -50,6 +54,23 @@
               <?php } else{?>
       				    <li><a href="logout.php">Salir</a></li>
       				<?php } ?>
+=======
+                  <li><a href="pago.php">Pagar</a></li>
+              <?php } if(allowed(38)) { ?> <!--verMisCompras-->
+                  <li><a href="pedidos.php">Mis pedidos</a></li>
+              <?php } if(allowed(48)) { ?> <!--editarMiUsuario-->
+                  <li><a href="nuevoUsuario.php">Mi información</a></li>
+              <?php } if(allowed(41)) { ?> <!--verMisCompras-->
+                  <li><a href="pendientes.php">Editar saldos</a></li>
+              <?php } if(allowed(35) && $_SESSION['rol']!=3) { ?> <!--editarProductos-->
+                  <li><a href="producto.php">Editar productos</a></li>
+              <?php } if(allowed(47)) { ?> <!--editarUsuarios-->
+                  <li><a href="nuevoUsuario.php">Editar usuarios</a></li>
+              <?php } if(allowed(45)) { ?> <!--generarReportes-->
+                  <li><a href="reportes.php">Reportes</a></li>
+              <?php } ?>
+      				<li><a href="logout.php">Salir</a></li>
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
       			<?php } else { ?>
       			    <li><a href="nuevoUsuario.php">Nuevo Usuario</a></li>
       			<?php } ?>

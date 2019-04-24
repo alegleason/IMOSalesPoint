@@ -1,9 +1,16 @@
 <?php
     require_once "util.php";
+<<<<<<< HEAD
 
     $pattern=strtolower($_GET["pattern"]);
     $query=getProductos(2);
     $response="";
+=======
+    
+    $pattern=strtolower($_GET["pattern"]);
+    $query=getProductos(2);
+    $reponse="";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $size=0;
     $numcol=1;
     for($i=0; $i<mysqli_num_rows($query); $i++){
@@ -34,7 +41,11 @@
         echo $response;
     }
     else{
+<<<<<<< HEAD
         $response="<div class\"container\"><h6 class=\"center\">No existe bebida con ese nombre</h6></div>";
+=======
+        $response.="<h6 class=\"center\">No existe bebida con ese nombre</h6>";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
         echo $response;
     }
 

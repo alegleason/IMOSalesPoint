@@ -82,4 +82,8 @@ function addProducto(){
 		document.getElementById("priceWrong").innerHTML="** El precio debe ser mayor a 0";
 		return false;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e

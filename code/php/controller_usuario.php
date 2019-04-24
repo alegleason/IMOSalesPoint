@@ -12,7 +12,11 @@ if (isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['lastname
   $passwords = htmlspecialchars($_POST['passwords'], ENT_QUOTES, 'UTF-8');
   $passwordss = htmlspecialchars($_POST['passwordss'], ENT_QUOTES, 'UTF-8');
   $passwordCifrado = password_hash($passwords, PASSWORD_DEFAULT);
+<<<<<<< HEAD
   createUser($name, $lastname, $lastname2, $phone, $email, $fechanacimiento, $passwords);
+=======
+  createUser($name, $lastname, $lastname2, $phone, $email, $fechanacimiento, $passwordCifrado);
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 }else{
   echo '<script type="text/javascript">alert("Datos recibidos incorrectamente!");</script>';
   header('Location: '.$_SERVER['HTTP_REFERER']);//Redirecting

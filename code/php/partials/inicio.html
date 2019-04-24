@@ -9,12 +9,16 @@
            <p>¡Bienvenidx <?=$_SESSION['nombre']?>!</p>
            <p>Usuario: <?=$_SESSION['idUsuario']?></p>
            <?php if(allowed(34)) { ?> <!--verMiSaldo-->
+<<<<<<< HEAD
              <?php if($_SESSION['deuda'] >= 0) { ?> <!--verMiSaldo-->
                <p style="color:red;">Saldo pendiente: $<?=$_SESSION['deuda']?></p>
              <?php } ?>
              <?php if($_SESSION['deuda'] < 0) { ?> <!--verMiSaldo-->
                <p style="color:green;">Saldo a favor: $<?=$_SESSION['deuda']*-1?></p>
              <?php } ?>
+=======
+             <p>Saldo pendiente: $<?=$_SESSION['deuda']?></p>
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
            <?php } ?>
          </div>
        </div>
@@ -27,6 +31,7 @@
    </div>
    <div class="row">
      <?php if(allowed(39)) { ?> <!--registrarCompraEnLinea-->
+<<<<<<< HEAD
        <div class="col m2">
            <a  href="principal.php?nuevo=1" class="waves-effect waves-light btn brown lighten-3"><i class="material-icons right">send</i>Ordenar algo</a>
        </div>
@@ -35,6 +40,20 @@
        <div class="col m3">
          <form action="pagar_saldo.php">
            <button class="btn waves-effect waves-light brown lighten-3" name="pagar_saldo" type="submit">Abonar a Saldo
+=======
+       <div class="col m3">
+         <form action="principal.php">
+           <button class="btn waves-effect waves-light  brown lighten-3" name="realizar_pedido" type="submit">Realizar pedido
+             <i class="material-icons right">send</i>
+           </button>
+         </form>
+       </div>
+     <?php } ?>
+     <?php if(allowed(40)) { ?> <!--registrarPagoEnLinea-->
+       <div class="col m4">
+         <form action="pagar_saldo.php">
+           <button class="btn waves-effect waves-light brown lighten-3" name="pagar_saldo" type="submit">Pagar Saldo Pendiente
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
              <i class="material-icons right">monetization_on</i>
            </button>
          </form>
@@ -49,13 +68,38 @@
       <div class="col m6" id="menu">
         <h5><i class="material-icons prefix">free_breakfast
         </i><strong> Menú recomendado del día</strong></h5>
+<<<<<<< HEAD
         <?=$table?>
         <?=$table2?>
         <?=$table3?>
+=======
+        <ol><!--Trasladar a PHP aparte-->
+           <strong>Bebida</strong>
+           <li> <?=$bebida?> </li>
+          <li> Leche </li>
+          <li> Americano </li>
+        </ol>
+        <ol>
+         <strong>Platillo principal</strong>
+         <li> <?=$comida?> </li>
+          <li> Sopa fría </li>
+          <li> Frijoles puercos </li>
+        </ol>
+        <ol>
+         <strong>Postre</strong>
+         <li> <?=$postre?> </li>
+          <li> Flan </li>
+          <li> Gorditas de nata </li>
+        </ol>
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
      </div>
      <div class="col m6">
        <iframe src="https://calendar.google.com/calendar/embed?src=1cr1d6f347ljqg2aucu20hv5b4%40group.calendar.google.com&ctz=America%2FMexico_City" style="border: 0" width="550" height="350" frameborder="0" scrolling="no"></iframe>
      </div>
    </div>
  <?php } ?>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e

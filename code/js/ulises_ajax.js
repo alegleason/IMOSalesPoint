@@ -29,12 +29,16 @@ function sendRequestBebidas(){
               var ajaxResponse = document.getElementById('contenido');
               ajaxResponse.innerHTML = data;
               ajaxResponse.style.visibility = "visible";
+<<<<<<< HEAD
           })
           .fail(function(data) {
               var ajaxResponse = document.getElementById('contenido');
               ajaxResponse.innerHTML = "<div class\"container\"><h6 class=\"center\">No existe bebida con ese nombre</h6></div>";
               ajaxResponse.style.visibility = "visible";
         });
+=======
+          });
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 }
 
 function sendRequestComidas(){
@@ -43,12 +47,16 @@ function sendRequestComidas(){
               var ajaxResponse = document.getElementById('contenido');
               ajaxResponse.innerHTML = data;
               ajaxResponse.style.visibility = "visible";
+<<<<<<< HEAD
           })
           .fail(function(data) {
               var ajaxResponse = document.getElementById('contenido');
               ajaxResponse.innerHTML = "<div class\"container\"><h6 class=\"center\">No existe comida con ese nombre</h6></div>";
               ajaxResponse.style.visibility = "visible";
         });
+=======
+          });
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 }
 
 function sendRequestPostres(){
@@ -57,12 +65,16 @@ function sendRequestPostres(){
               var ajaxResponse = document.getElementById('contenido');
               ajaxResponse.innerHTML = data;
               ajaxResponse.style.visibility = "visible";
+<<<<<<< HEAD
           })
           .fail(function(data) {
               var ajaxResponse = document.getElementById('contenido');
               ajaxResponse.innerHTML = "<div class\"container\"><h6 class=\"center\">No existe postre con ese nombre</h6></div>";
               ajaxResponse.style.visibility = "visible";
         });
+=======
+          });
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 }
 
 function cambiarDisponibilidadBebidas(idProducto,num) {
@@ -135,7 +147,11 @@ function validarNombre(){
             else if(numbers.test(name)) document.getElementById("namePWrong").innerHTML="** El nombre no debe de contener numeros";
             else if(name=="" || name.length<2 || name.length>30 ) document.getElementById("namePWrong").innerHTML="** El nombre debe de contener entre 2 a 30 caracteres";
             else document.getElementById("namePWrong").innerHTML="";
+<<<<<<< HEAD
 }
+=======
+       }
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
        function validarDescripcion(){
            var descripcion = document.getElementById("descripcion").value;
@@ -151,11 +167,19 @@ function validarNombre(){
            var min=/[a-z]/;
            var may=/[A-Z]/;
            var decimal=/[.]/;
+<<<<<<< HEAD
            if(precio=="") document.getElementById("priceWrong").innerHTML="** Favor de ingresar el precio del producto";
            else if(decimal.test(aux)) document.getElementById("priceWrong").innerHTML="** El precio solo puede incluir números enteros";
            else if(characters.test(aux) || min.test(aux) || may.test(aux)) document.getElementById("priceWrong").innerHTML="** El precio solo puede incluir números";
            else if (precio<=0 || precio>100) document.getElementById("priceWrong").innerHTML="** El precio debe ser mayor a 0 y menor o igual a 100";
            else document.getElementById("priceWrong").innerHTML="";
+=======
+            if(precio=="") document.getElementById("priceWrong").innerHTML="** Favor de ingresar el precio del producto";
+            else if(decimal.test(aux)) document.getElementById("priceWrong").innerHTML="** El precio solo puede incluir números enteros";
+            else if(characters.test(aux) || min.test(aux) || may.test(aux)) document.getElementById("priceWrong").innerHTML="** El precio solo puede incluir números";
+            else if (precio<=0 || precio>100) document.getElementById("priceWrong").innerHTML="** El precio debe ser mayor a 0 y menor o igual a 100";
+            else document.getElementById("priceWrong").innerHTML="";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
        }
 
         function insertProducto() {
@@ -209,10 +233,20 @@ function validarNombre(){
                 }
                 if(cat!=-1){
                     document.getElementById("submitWrong").innerHTML="";
+<<<<<<< HEAD
                     $.get( "../php/insertar_producto.php", { nombre: name,des:descripcion,price:precio,cate:cat })
                           .done(function( data ) {
                               M.toast({html: 'Producto Agregado al Catálogo', classes: 'rounded',displayLength:1500});
                               setTimeout(changeView(1),1050);
+=======
+                    $.get( "insertar_producto.php", { nombre: name,des:descripcion,price:precio,cate:cat })
+                          .done(function( data ) {
+                              M.toast({html: 'Producto Agregado al Sistema', classes: 'rounded',displayLength:1500});
+                              document.getElementById("nombre").value="";
+                              document.getElementById("descripcion").value="";
+                              document.getElementById("precio").value="";
+                              categoria.options[categoria.selectedIndex].value="";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
                           })
                           .fail(function(data) {
                                 M.toast({html: 'El Producto NO se Agregó ', classes: 'rounded',displayLength:1500});
@@ -274,6 +308,7 @@ function updateProducto() {
         }
 
 
+<<<<<<< HEAD
     function changeView(opcion){
         if(opcion==1){
             window.location='producto.php';
@@ -285,6 +320,10 @@ function updateProducto() {
             window.location='logout.php';
         }
             
+=======
+    function changeView(){
+         window.location='producto.php';
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
      }
 
      function eliminarProducto() {
@@ -292,6 +331,7 @@ function updateProducto() {
      $.get( "eliminar_producto.php", { pattern: id })
         .done(function( data ) {
               M.toast({html: 'Producto Eliminado Exitosamente', classes: 'rounded',displayLength:1000});
+<<<<<<< HEAD
               setTimeout(changeView(1),1050);
           })
         .fail(function(data) {
@@ -499,3 +539,9 @@ function sendRequestDeudores(){
         });
 }
 
+=======
+              setTimeout(changeView,1050);
+          });
+
+     }
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e

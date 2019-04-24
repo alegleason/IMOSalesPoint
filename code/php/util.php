@@ -1,17 +1,31 @@
 <?php
+<<<<<<< HEAD
   if(!isset($_SESSION)) {
       session_start();
   }
+=======
+  if(!isset($_SESSION))
+    {
+        session_start();
+    }
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
   function footerhtml() {
     include "partials/_footer.html";
   }
 
   function connectDB() {
+<<<<<<< HEAD
     $servername = "remotemysql.com";
     $username = "HkAYQjkxnm";
     $password = "zvlDuwLcEf";
     $dbname = "HkAYQjkxnm";
+=======
+    $servername = "localhost";
+    $username = "symphony";
+    $password = "3lm3j0r3quip0";
+    $dbname = "Symphony";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
     $con = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -30,7 +44,11 @@
   function checkMatch($usuario, $passwd){
     $db = connectDB();
 
+<<<<<<< HEAD
     $query = "SELECT * FROM Usuarios WHERE idUsuario = '$usuario' AND contrasena = '$passwd' AND activo=1";
+=======
+    $query = "SELECT * FROM Usuarios WHERE idUsuario = '$usuario' AND contrasena = '$passwd'";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $res = mysqli_query($db, $query);
     $row = mysqli_fetch_assoc($res);
 
@@ -45,6 +63,7 @@
     return $res;
   }
 
+<<<<<<< HEAD
   function checkUsr($usuario){
     $db = connectDB();
 
@@ -79,6 +98,12 @@
     $db = connectDB();
 
     $query = "SELECT nombre FROM Usuarios WHERE idUsuario='".$id."' AND activo=1";//Check whether if the user exists
+=======
+  function getName($id){
+    $db = connectDB();
+
+    $query = "SELECT nombre FROM Usuarios WHERE idUsuario='".$id."'";//Check whether if the user exists
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $res = mysqli_query($db, $query);
     $row = mysqli_fetch_assoc($res);
 
@@ -90,7 +115,11 @@
   function getDeuda($id){
     $db = connectDB();
 
+<<<<<<< HEAD
     $query = "SELECT deuda FROM Usuarios WHERE idUsuario='".$id."' AND activo=1";//Check whether if the user exists
+=======
+    $query = "SELECT deuda FROM Usuarios WHERE idUsuario='".$id."'";//Check whether if the user exists
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $res = mysqli_query($db, $query);
     $row = mysqli_fetch_assoc($res);
 
@@ -103,14 +132,24 @@
     $db = connectDB();
     $deuda = 0;// todos tienen una deuda inicial de 0 pesos
     $query = "INSERT INTO Usuarios ".
+<<<<<<< HEAD
                "(idUsuario,idRol, nombre, apellidoPaterno, apellidoMaterno, telefono, correo, fechaNacimiento, contrasena, deuda, activo) "."VALUES ".
                "(NULL,'2','$nombre','$apellidoPaterno','$apellidoMaterno','$telefono','$correo','$fechaNacimiento','$contrasena', '$deuda', '1')";
+=======
+               "(idUsuario,idRol, nombre, apellidoPaterno, apellidoMaterno, telefono, correo, fechaNacimiento, contrasena, deuda) "."VALUES ".
+               "(NULL,'2','$nombre','$apellidoPaterno','$apellidoMaterno','$telefono','$correo','$fechaNacimiento','$contrasena', '$deuda')";
+               mysqli_select_db($db,'Symphony');
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
     //$retval = mysqli_query($sql, $conn);
     $res = mysqli_query($db, $query);
     //echo $fechaNacimiento;
     if(! $res ){
+<<<<<<< HEAD
       die('Error al ingresar la información: ' . mysqli_error($db));
+=======
+      die('Could not enter data: ' . mysqli_error($db));
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
       $flag = 0;
     }else{
       echo '<script type="text/javascript">alert("Usuario agregado correctamente!");</script>';
@@ -123,7 +162,11 @@
   function getRol($id) {
     $db = connectDB();
 
+<<<<<<< HEAD
     $query = "SELECT idRol FROM Usuarios WHERE idUsuario='".$id."' AND activo=1";
+=======
+    $query = "SELECT idRol FROM Usuarios WHERE idUsuario='".$id."'";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $role = mysqli_query($db, $query);
     $roleid = mysqli_fetch_assoc($role);
 
@@ -135,7 +178,11 @@
   function getPasswordHashed($id) {
     $db = connectDB();
 
+<<<<<<< HEAD
     $sql = "SELECT contrasena FROM Usuarios WHERE idUsuario='".$id."' AND activo=1";
+=======
+    $sql = "SELECT contrasena FROM Usuarios WHERE idUsuario='".$id."'";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $query = mysqli_query($db, $sql);
 
     $resultstring = mysqli_fetch_row($query)[0];
@@ -152,6 +199,7 @@
   }
 
   function allowed($permiso) {
+<<<<<<< HEAD
     $res = false;
 
     if(isset($_SESSION['rol'])) {
@@ -163,27 +211,55 @@
       }
       closeDB($db);
     }
+=======
+    $db = connectDB();
+
+    $query = "SELECT * FROM PermisosXRol WHERE idRol='".$_SESSION['rol']."' AND idPermiso=".$permiso;
+    $results = mysqli_query($db, $query);
+    if(mysqli_num_rows($results) > 0) {
+      $res = true;
+    }
+    else {
+      $res = false;
+    }
+    closeDB($db);
+
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     return $res;
   }
 
   function getProductos($idcat){
     $db = connectDB();
+<<<<<<< HEAD
     $query="SELECT P.idProducto, P.nombre, P.disponible, P.activo FROM Productos P WHERE P.idCategoria='$idcat' AND P.activo='1'";
+=======
+    $query="CALL `obtener_productos` ('$idcat')";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $results=mysqli_query($db,$query);
     closeDB($db);
     return $results;
   }
 
+<<<<<<< HEAD
   function getUpdateById($id,$num){
     $db = connectDB();
     $query="UPDATE Productos SET disponible='$num' WHERE idProducto='$id'";
+=======
+  function getUpdateById($idProducto,$num){
+    $db = connectDB();
+    $query="CALL `modificar_disponibilidad` ('$idProducto','$num')";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $results=mysqli_query($db,$query);
     closeDB($db);
   }
 
   function getProductos_Todos(){
     $db = connectDB();
+<<<<<<< HEAD
     $query="SELECT * FROM Productos";
+=======
+    $query="CALL `obtener_productos_todos` ()";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $results=mysqli_query($db,$query);
     closeDB($db);
     return $results;
@@ -192,12 +268,17 @@
 
   function getProductoUnico($id){
     $db = connectDB();
+<<<<<<< HEAD
     $query="SELECT * FROM Productos P WHERE P.idProducto='$id'";
+=======
+    $query="CALL `obtener_producto_id` ('$id')";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $results=mysqli_query($db,$query);
     closeDB($db);
     return $results;
   }
 
+<<<<<<< HEAD
 function InsertarProducto($idcat, $price, $des,$nombre){
     $con = connectDB();
     $query='INSERT INTO Productos (idCategoria, precio, descripcion, nombre, disponible, activo) VALUES (?,?,?,?,?,?)';
@@ -223,6 +304,26 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     $statement->close();
     closeDB($con);
 }
+=======
+  function InsertarProducto($idcat, $precio, $descripcion,$nombre){
+    $db = connectDB();
+    $query="CALL `insertar_producto` ('$idcat','$precio','$descripcion','$nombre')";
+    if(mysqli_query($db,$query)) return true;
+    else false;
+    closeDB($db);
+  }
+
+  function getProductosDisponibles($idCategoria){
+    $db = connectDB();
+
+    $query= "SELECT idProducto, nombre FROM Productos WHERE idCategoria='".$idCategoria."' AND disponible=1";
+    $results=mysqli_query($db,$query);
+
+    closeDB($db);
+
+    return $results;
+  }
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
   function getRowClass($numFilas) {
     if($numFilas==1) {
@@ -239,6 +340,7 @@ function InsertarProducto($idcat, $price, $des,$nombre){
   function getBtnClass($idCategoria) {
     switch($idCategoria) {
       case 1:
+<<<<<<< HEAD
         $class="lime darken-1";
         break;
       case 2:
@@ -246,6 +348,15 @@ function InsertarProducto($idcat, $price, $des,$nombre){
         break;
       case 3:
         $class="pink darken-1 ";
+=======
+        $class.="lime darken-1";
+        break;
+      case 2:
+        $class.="light-blue darken-1";
+        break;
+      case 3:
+        $class.="pink darken-1 ";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
         break;
     }
     return $class;
@@ -254,11 +365,18 @@ function InsertarProducto($idcat, $price, $des,$nombre){
   function getBotones($idCategoria) {
     $productos=getProductosDisponibles($idCategoria);
     $cantProductos=mysqli_num_rows($productos);
+<<<<<<< HEAD
     $numFilas=ceil($cantProductos/4);
 
     if($cantProductos > 0) {
       $btnClass = getBtnClass($idCategoria);
       $rowClass = getRowClass($numFilas);
+=======
+
+    if($cantProductos > 0) {
+      $btnClass = getBtnClass($idCategoria);
+      $rowClass = getRowClass(ceil($cantProductos/4));
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
       $stringBotones="<div class='row ".$rowClass."'>";
       $prodActual=1;
@@ -282,7 +400,11 @@ function InsertarProducto($idcat, $price, $des,$nombre){
   function checkBuyer($idUsuario) {
     $db = connectDB();
 
+<<<<<<< HEAD
     $query= "SELECT * FROM Usuarios WHERE idUsuario='".$idUsuario."' AND idRol=2 AND activo=1";
+=======
+    $query= "SELECT * FROM Usuarios WHERE idUsuario='".$idUsuario."' AND idRol=2";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $results=mysqli_query($db,$query);
 
     closeDB($db);
@@ -295,7 +417,11 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     }
   }
 
+<<<<<<< HEAD
   function iniciarCompra($idComprador, $idVendedor="") {
+=======
+  function iniciarCompra($idComprador, $idVendedor) {
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     $con = connectDB();
 
     $query='INSERT INTO Compras (idCompra, idUsuarioComprador, idUsuarioVendedor, horaFechaVenta, horaEntrega) VALUES (?,?,?,?,?)';
@@ -306,6 +432,7 @@ function InsertarProducto($idcat, $price, $des,$nombre){
 
     $idCompra=NULL;
     $idComprador = $con->real_escape_string($idComprador);
+<<<<<<< HEAD
     if($idVendedor=="") {
       // Si se empieza una compra en línea el vendedor es null
       $idVendedor=NULL;
@@ -315,6 +442,11 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     date_default_timezone_set('America/Mexico_City');
     $horaFechaVenta = date("Y-m-d H:i:s");
     $horaEntrega = NULL;
+=======
+    $idVendedor = $con->real_escape_string($idVendedor);
+    $horaFechaVenta=NULL;
+    $horaEntrega=NULL;
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
     if (!$statement->bind_param("sssss", $idCompra, $idComprador, $idVendedor, $horaFechaVenta, $horaEntrega)) {
       die("Parameter vinculation failed: (" . $statement->errno . ") " . $statement->error);
@@ -445,7 +577,11 @@ function InsertarProducto($idcat, $price, $des,$nombre){
   function getPassword($email) {
     $db = connectDB();
 
+<<<<<<< HEAD
     $sql = "SELECT contrasena FROM Usuarios WHERE correo='".$email."' AND activo=1";
+=======
+    $sql = "SELECT contrasena FROM Usuarios WHERE correo='".$email."'";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
     $query = mysqli_query($db, $sql);
 
@@ -495,7 +631,11 @@ function InsertarProducto($idcat, $price, $des,$nombre){
         $input.="<input id='cantidad' name='cantidad' type='number' class='validate'><label for='cantidad'>".$row['cantidad']."</label></div>";
         $input.="<div class='col m2'><button class='btn waves-effect waves-light small-font brown lighten-3 change-btn' type='submit'>Cambiar</button></div></form>";
 
+<<<<<<< HEAD
         $table.="<tr><td>".$row['nombre']."</td><td>".$input."</td><td>$".$row['precioVenta']."</td><td>$".$row['cantidad']*$row['precioVenta']."</td><td><a href='modificar_pedido.php?idProdEliminar=".$row['idProducto']."'><i class='small material-icons icon-red'>cancel</i></a></td></tr>";
+=======
+        $table.="<tr><td>".$row['nombre']."</td><td>".$input."</td><td>$".$row['precioVenta']."</td><td>$".$row['cantidad']*$row['precioVenta']."</td><td><a href='modificar_pedido.php?idProdEliminar=".$row[idProducto]."'><i class='small material-icons icon-red'>cancel</i></a></td></tr>";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
       }
       $table.="</tbody></table>";
     }
@@ -511,7 +651,11 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     $sql = "SELECT P.nombre, PXC.cantidad, PXC.precioVenta FROM Productos AS P, ProductosXCompra AS PXC WHERE P.idProducto=PXC.idProducto AND PXC.idCompra=".$idCompra;
     $query = mysqli_query($db, $sql);
     closeDB($db);
+<<<<<<< HEAD
     $total=0;
+=======
+
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     if(mysqli_num_rows($query) > 0) {
       $total=0;
       $table="<table class='centered'><thead><tr><th>Artículo</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead><tbody>";
@@ -525,6 +669,7 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     else {
       $table="No has agregado ningún producto por el momento.";
     }
+<<<<<<< HEAD
     $_SESSION['totalAPagar']=$total; //pagoTotal es para pagos independientes
     return $table;
   }
@@ -546,6 +691,8 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     else {
       $table="No hay usuarios con ese ID.";
     }
+=======
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
 
     return $table;
   }
@@ -569,6 +716,7 @@ function InsertarProducto($idcat, $price, $des,$nombre){
     closeDB($db);
   }
 
+<<<<<<< HEAD
 
   function getSaldo($usuario) {
     $db = connectDB();
@@ -577,11 +725,29 @@ function InsertarProducto($idcat, $price, $des,$nombre){
 
     $query = mysqli_query($db, $sql);
 
+=======
+//categorias: 1 - comida, 2 - bebida, 3 - postre
+  function getAvBebida() {//Av stands for available
+    $db = connectDB();
+
+    $sql = "SELECT nombre FROM Productos WHERE disponible=1 AND idCategoria=2";
+
+    $query = mysqli_query($db, $sql);
+
+    /*while($row = mysqli_fetch_assoc($query)) {
+
+    }*/
+
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     if(mysqli_num_rows($query) > 0) {
       $resultstring = mysqli_fetch_row($query)[0];
     }
     else {
+<<<<<<< HEAD
       $resultstring = "Error al obtener el saldo del usuario.";
+=======
+      $resultstring = "No hay bebidas disponibles, favor de acudir al punto de venta físico.";
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     }
 
     closeDB($db);
@@ -590,6 +756,7 @@ function InsertarProducto($idcat, $price, $des,$nombre){
 
   }
 
+<<<<<<< HEAD
   function UpdateProducto($id, $des, $price,$cate){
 
     $db = connectDB();
@@ -1067,6 +1234,64 @@ function InsertarProducto($idcat, $price, $des,$nombre){
       }
 
     return $table;
+=======
+  function getAvComida() {//Av stands for available
+    $db = connectDB();
+
+    $sql = "SELECT nombre FROM Productos WHERE disponible=1 AND idCategoria=1";
+
+    $query = mysqli_query($db, $sql);
+
+    if(mysqli_num_rows($query) > 0) {
+      $resultstring = mysqli_fetch_row($query)[0];
+    }
+    else {
+        $resultstring = "No hay platillos disponibles, favor de acudir al punto de venta físico.";
+    }
+
+    closeDB($db);
+
+    return $resultstring;
+
+  }
+
+  function getAvPostre() {//Av stands for available
+    $db = connectDB();
+
+    $sql = "SELECT nombre FROM Productos WHERE disponible=1 AND idCategoria=3";
+
+    $query = mysqli_query($db, $sql);
+
+    if(mysqli_num_rows($query) > 0) {
+      $resultstring = mysqli_fetch_row($query)[0];
+    }
+    else {
+      $resultstring = "No hay postres disponibles, favor de acudir al punto de venta físico.";
+    }
+
+    closeDB($db);
+
+    return $resultstring;
+
+  }
+
+
+  
+  function UpdateProducto($id, $descripcion, $precio,$cate){
+    $db = connectDB();
+    $query="CALL `update_producto` ('$id','$descripcion','$precio','$cate')";
+    if(mysqli_query($db,$query)) return true;
+    else false;
+    closeDB($db);
+  }
+  
+  function DeleteProducto($id){
+    $db = connectDB();
+    $query="CALL `delete_producto` ('$id')";
+    if(mysqli_query($db,$query)) return true;
+    else false;
+    closeDB($db);
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
   }
 
 ?>

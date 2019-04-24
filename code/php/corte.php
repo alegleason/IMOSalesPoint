@@ -3,6 +3,7 @@
   require_once("util.php");
 
   if(isset($_SESSION["idUsuario"]) && allowed(43)) {
+<<<<<<< HEAD
     date_default_timezone_set('America/Mexico_City');
     $horaSalida=date('Y-m-d H:i:s', time());
     $query=getCorteCaja(1,$_SESSION["horaconex"],$horaSalida);
@@ -18,6 +19,8 @@
     if($tarjeta==NULL) $tarjeta=0;
     if($fiar==NULL) $fiar=0;
     $total=$efectivo+200+$tarjeta;
+=======
+>>>>>>> 22408f508e1cb158071ed17531441eca9f3e298e
     include 'partials/_header.html';
     include 'partials/corte.html';
     footerhtml();
